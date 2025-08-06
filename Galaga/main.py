@@ -10,6 +10,7 @@ motherships = []
 level = 1
 message = ""
 is_winning = None
+count = 0
 
 
 bullets =[]
@@ -44,8 +45,8 @@ def draw():
         for t in tanks:
             t.draw()
         if level == 5:
-            for i in motherships:
-                i.draw()
+            for m in motherships:
+                m.draw()
             if count == 5:
                 motherships.remove(m)
                 sounds.explosion.play()
@@ -192,7 +193,6 @@ def update():
                 fighter.x += 4
             elif keyboard.a:
                 fighter.x -= 4
-            count = 0
             for l in bullets:
                 l.y -= 4
                 if l.y <= 0:
